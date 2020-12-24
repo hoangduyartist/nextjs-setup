@@ -6,7 +6,7 @@ module.exports = new NextI18Next({
   defaultLanguage: 'en',
   otherLanguages: ['vi'],
   preload: ['en'],
-  fallbackLng: 'en',    
+  fallbackLng: 'en',
   browserLanguageDetection: false,
   serverLanguageDetection: false,
   // localeSubpaths,

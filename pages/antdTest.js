@@ -1,54 +1,39 @@
 import { useContext, useState } from 'react';
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Typography } from 'antd';
 import { withTranslation, useTranslation } from '../i18n';
+import TestLang from '../components/antdTest/language.js';
+import CommonInfo from '../components/antdTest/commonInfo';
 
+const { Title } = Typography;
+
+const myStyle = {
+  container: {
+    maxWidth: 1224,
+    margin: 'auto'
+  },
+  paddingCol: {
+    padding: 12
+  },
+  topTitle: {
+    textAlign: 'center',
+    marginTop: 16
+  }
+}
 function AntdTest({ t, i18n }) {
-  // const { t, i18n } = useTranslation('common');
-  // const [lang, setLang] = useState(i18n.language);
-  const changeLanguage = (lang) => {
-    // setLang(lang);
-    i18n.changeLanguage(lang);
-  };
 
-  console.log('current lang + render', i18n.language);
+  console.log('current lang + render', i18n);
 
   return (
-    <div>
-      <div>antdTest</div>
-      <div>
-        <a href="https://ourcodeworld.com/articles/read/497/top-10-best-ui-frameworks-for-reactjs">
-          Top 10 best UI frameworks for reactjs
-        </a>
-      </div>
-      <div>
-        <a href="https://dev.to/burhanuday/using-ant-design-with-nextjs-custom-variables-for-ant-design-57m5">
-          Using Next + customize var with full styled support
-        </a>
-      </div>
-      <div>
-        <a href="https://github.com/vercel/next-plugins/issues/598">
-          Compose plugin issue in next js
-        </a>
-      </div>
-      <div>
-        <a href="https://stackoverflow.com/questions/64822738/next-js-next-i18next-is-always-routing-to-en">
-          Next.js next-i18next is always routing to EN
-        </a>
-      </div>
-      <Button type="primary" onClick={() => changeLanguage('en')}>
-        Endlish
-      </Button>
-      <Button type="primary" onClick={() => changeLanguage('vi')}>
-        Vietnamese
-      </Button>
-      <div>Test language - current language: {i18n.language}</div>
-      <div>{t('test-lang-1')}</div>
+    <div style={myStyle.container}>
+      <Title level={2} style={myStyle.topTitle}>h2. Ant Design</Title>
       <Row>
-        <Col span={24}>col</Col>
-      </Row>
-      <Row>
-        <Col span={12}>col-12</Col>
-        <Col span={12}>col-12</Col>
+        {/* <Col span={24}>col-24</Col> */}
+        <Col sm={24} md={12} style={myStyle.paddingCol}>
+          <CommonInfo />
+        </Col>
+        <Col sm={24} md={12} style={myStyle.paddingCol}>
+          <TestLang />
+        </Col>
       </Row>
     </div>
   );
